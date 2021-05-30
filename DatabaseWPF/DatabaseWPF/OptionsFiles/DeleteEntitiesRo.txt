@@ -1,0 +1,7 @@
+Persoana
+Clasa
+Elev
+Profesor
+Specializare
+Materie
+Materie-Specializare

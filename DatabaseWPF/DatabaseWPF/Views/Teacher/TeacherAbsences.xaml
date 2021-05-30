@@ -1,0 +1,54 @@
+﻿<Page x:Class="DatabaseWPF.Views.TeacherAbsences"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DatabaseWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TeacherAbsences">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/absencesBackground.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <Menu DockPanel.Dock="Top" Margin="0,0,0,375" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Menu.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#E16C1A" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#EFEF08" Offset="1.0"></GradientStop>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="_Menu" Height="35" Width="52">
+                <MenuItem Header="_Main Menu" Command="{Binding MainMenuCommand}"/>
+                <MenuItem Header="_Log out" Command="{Binding LoginCommand}"/>
+                <Separator/>
+                <MenuItem Header="_Exit App" Command="{Binding ExitCommand}"/>
+            </MenuItem>
+            <Label Content="{Binding MenuLabel}"></Label>
+        </Menu>
+
+        <ListBox SelectedValue="{Binding CurrentAbsence}" ItemsSource="{Binding AllEntities}" Margin="455,94,10,10" Background="#80EF8908" Foreground="White"/>
+
+        <ComboBox SelectedValue="{Binding CurrentClass}" ItemsSource="{Binding Classes}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="86,119,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Alegeti o clasa" HorizontalAlignment="Left" Margin="86,88,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox SelectedValue="{Binding CurrentStudent}" ItemsSource="{Binding Students}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="86,177,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Alegeti un elev" HorizontalAlignment="Left" Margin="86,146,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox SelectedValue="{Binding CurrentSemester}" ItemsSource="{Binding Semesters}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="262,72,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Alegeti un semestru" HorizontalAlignment="Left" Margin="262,41,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <DatePicker SelectedDate="{Binding Date}" Visibility="{Binding DateVisibility, Converter={StaticResource BoolToVisConverter}}" HorizontalAlignment="Left" Margin="282,124,0,0" VerticalAlignment="Top"/>
+
+        <Button Command="{Binding AddCommand}" Style="{StaticResource RoundButton}" Background="#F78C05" Content="Adaugati Absenta" HorizontalAlignment="Left" Margin="83,252,0,0" VerticalAlignment="Top" Height="45" Width="126"/>
+        <Button Command="{Binding UpdateCommand}" Style="{StaticResource RoundButton}" Background="#F78C05" Content="Modificati Absenta" HorizontalAlignment="Left" Margin="83,302,0,0" VerticalAlignment="Top" Height="45" Width="126"/>
+        <Button Command="{Binding DeleteCommand}" Style="{StaticResource RoundButton}" Background="#F78C05" Content="Stergeti Absenta" HorizontalAlignment="Left" Margin="83,352,0,0" VerticalAlignment="Top" Height="45" Width="126"/>
+        <Button Visibility="{Binding AllAbsencesVis, Converter={StaticResource BoolToVisConverter}}" Command="{Binding AllAbsencesCommand}" Style="{StaticResource RoundButton}" Background="#F78C05" Content="Toate Absentele" HorizontalAlignment="Left" Margin="240,252,0,0" VerticalAlignment="Top" Height="45" Width="126"/>
+        <Button Visibility="{Binding AllAbsencesVis, Converter={StaticResource BoolToVisConverter}}" Command="{Binding ViewAbsencesCommand}" Style="{StaticResource RoundButton}" Background="#F78C05" Content="Vedeti Absente" HorizontalAlignment="Left" Margin="240,352,0,0" VerticalAlignment="Top" Height="45" Width="126"/>
+        <CheckBox IsChecked="{Binding Motivated}" Visibility="{Binding MotivatedVisibility, Converter={StaticResource BoolToVisConverter}}" Content="Motivata" HorizontalAlignment="Left" Margin="299,190,0,0" VerticalAlignment="Top"/>
+        <Label VerticalContentAlignment="Center" FontSize="20" Content="Absente" HorizontalAlignment="Left" Margin="83,40,0,0" VerticalAlignment="Top" Height="41" Width="111"/>
+        <CheckBox IsChecked="{Binding ViewAllAbsences}" Visibility="{Binding AllAbsencesVis, Converter={StaticResource BoolToVisConverter}}" Content="Toate Absentele" HorizontalAlignment="Left" Margin="94,213,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="20" Content="{Binding TotalCount}" VerticalContentAlignment="Center" Margin="0,0,84,343" Width="186" Height="38" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <CheckBox IsChecked="{Binding JustUnmotivated}" Content="Nemotivate" HorizontalAlignment="Left" Margin="262,318,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

@@ -1,0 +1,7 @@
+Person
+Class
+Student
+Professor
+Specialization
+Subject
+SubjectSpecialization

@@ -1,0 +1,22 @@
+﻿<Page x:Class="DatabaseWPF.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DatabaseWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding BackgroundImage}" Stretch="Uniform"/>
+        </Grid.Background>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="98">
+            <Button Style="{StaticResource RoundButton}" Background="#1A5F8E" FontSize="25" Content="Admin"   Width="200" Margin="0,0,0,0" Command="{Binding AdminClick}"/>
+            <Button Style="{StaticResource RoundButton}" Background="#1A5F8E" FontSize="25" Content="Teacher" Width="200" Margin="80,0,0,0" Command="{Binding TeacherClick}"/>
+            <Button Style="{StaticResource RoundButton}" Background="#1A5F8E" FontSize="25" Content="Student" Width="200" Margin="90,0,0,0" Command="{Binding StudentClick}"/>
+        </StackPanel>
+    </Grid>
+</Page>

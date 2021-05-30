@@ -1,0 +1,38 @@
+﻿<Page x:Class="DatabaseWPF.Views.AdminEraser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DatabaseWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminEraser">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/eraserBackground.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+        
+        <Menu DockPanel.Dock="Top" Margin="0,0,0,375" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Menu.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1655C9" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#330E76" Offset="1.0"></GradientStop>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="_Menu" Height="35" Width="52">
+                <MenuItem Header="_Main Menu" Command="{Binding MainMenuCommand}"/>
+                <MenuItem Header="_Log out" Command="{Binding LoginCommand}"/>
+                <Separator></Separator>
+                <MenuItem Header="_Exit App" Command="{Binding ExitCommand}"/>
+            </MenuItem>
+            <Label Content="{Binding MenuLabel}"></Label>
+        </Menu>
+
+        <ComboBox SelectedIndex="{Binding CurrentEntityIndex}"  ItemsSource="{Binding Entities}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="70,174,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Alegeti o entitate" HorizontalAlignment="Left" Margin="70,138,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox SelectedItem="{Binding CurrentObject}"  ItemsSource="{Binding DatabaseObjects}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Label}" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button FontSize="18" Style="{StaticResource RoundButton}" Background="#EC870F" Command="{Binding EraseCommand}"  Content="Stergeti" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Height="50" Width="100"/>
+    </Grid>
+</Page>

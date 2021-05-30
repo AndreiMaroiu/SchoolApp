@@ -1,0 +1,6 @@
+Elev Student 2 2 false Persoana personID Clasa classID
+Profesor Professor 2 3 false Persoana personID Materie subjectID Clasa ClassID
+Materie-Specializare SubjectSpecialization 2 2 true Materie subjectID Specializare specializationID Teza haveThesis
+Clasa-Specializare ClassSpecialization 2 2 false Clasa classID Specializare specializationID
+Clasa-Materie ClassSubject 2 2 false Clasa classID Materie subjectID
+Profesor-Clasa ProfessorClass 2 2 false Profesor professorID Clasa classID

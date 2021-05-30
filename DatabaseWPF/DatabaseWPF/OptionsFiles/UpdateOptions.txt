@@ -1,0 +1,7 @@
+Persoana Person Prenume firstName Nume lastName
+Elev Student Persoana personID Clasa classID
+Clasa Class An year Litera yearChar
+Specializare Specialization Nume name
+Materie Subject Nume subjectName
+Profesor Professor Persoana personID Materie subjectID Clasa classID
+Utilizator User Nume username Parola password Rol role Persoana personID

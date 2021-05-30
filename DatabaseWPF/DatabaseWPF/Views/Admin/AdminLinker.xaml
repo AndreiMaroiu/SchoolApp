@@ -1,0 +1,51 @@
+﻿<Page x:Class="DatabaseWPF.Views.AdminLinker"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DatabaseWPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminLinker">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/linkerBackground-copy.jpg" Stretch="Uniform"></ImageBrush>
+        </Grid.Background>
+
+        <Menu DockPanel.Dock="Top" Margin="0,0,0,375" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Menu.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#6AC7E9" Offset="0.1"></GradientStop>
+                    <GradientStop Color="#1A5EDD" Offset="1.0"></GradientStop>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="_Menu" Height="35" Width="52">
+                <MenuItem Header="_Main Menu" Command="{Binding MainMenuCommand}"/>
+                <MenuItem Header="_Log out" Command="{Binding LoginCommand}"/>
+                <Separator/>
+                <MenuItem Header="_Exit To Menu" Command="{Binding ExitCommand}"/>
+            </MenuItem>
+            <Label Content="{Binding MenuLabel}"></Label>
+        </Menu>
+        <Label Content="Alegeti ce sa cuplati:" HorizontalAlignment="Left" Margin="53,97,0,0" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource RoundButtonMedium}" Background="#1AA8DA" FontSize="24" Content="Adaugati" Command="{Binding ButtonClick}" HorizontalAlignment="Left" Margin="418,334,0,0" VerticalAlignment="Top" Height="60" Width="139"/>
+        <ComboBox ItemsSource="{Binding Sources[0]}" SelectedItem="{Binding CurrentObjects[0]}" Visibility="{Binding Visibilities[0], Converter={StaticResource BoolToVisConverter}}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="280,170,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox ItemsSource="{Binding Sources[1]}" SelectedItem="{Binding CurrentObjects[1]}" Visibility="{Binding Visibilities[1], Converter={StaticResource BoolToVisConverter}}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="437,170,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox ItemsSource="{Binding Sources[2]}" SelectedItem="{Binding CurrentObjects[2]}" Visibility="{Binding Visibilities[2], Converter={StaticResource BoolToVisConverter}}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="588,170,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox ItemsSource="{Binding Couplings}" SelectedItem="{Binding CurrentCoupling}" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Margin="53,129,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Labels[0]}"   Visibility="{Binding Visibilities[0], Converter={StaticResource BoolToVisConverter}}" HorizontalAlignment="Left" Margin="281,135,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Labels[1]}" Visibility="{Binding Visibilities[1], Converter={StaticResource BoolToVisConverter}}"   HorizontalAlignment="Left" Margin="437,135,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Labels[2]}"  Visibility="{Binding Visibilities[2], Converter={StaticResource BoolToVisConverter}}"  HorizontalAlignment="Left" Margin="588,135,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox ItemsSource="{Binding AllEntities}" Margin="14,195,588,24" Foreground="White">
+            <ListBox.Background>
+                <SolidColorBrush Color="#c93A90B0">
+
+                </SolidColorBrush>
+            </ListBox.Background>
+        </ListBox>
+        <CheckBox IsChecked="{Binding BoolValue}" Visibility="{Binding Visibilities[3], Converter={StaticResource BoolToVisConverter}}" Content="{Binding CheckBoxString}" HorizontalAlignment="Left" Margin="724,174,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
