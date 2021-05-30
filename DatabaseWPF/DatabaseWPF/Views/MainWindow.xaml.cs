@@ -23,8 +23,8 @@ namespace DatabaseWPF.Views
         public MainWindow()
         {
             InitializeComponent();
-            //Main.Content = new LoginPage(this);
-            Main.Content = new MainPage(this);
+            Main.Content = new LoginPage(this);
+            //Main.Content = new MainPage(this);
             Factory = new MainFactories.SimpleMainFactory(this);
         }
     }
