@@ -9,21 +9,26 @@ namespace DatabaseWPF.Models.Helpers
 {
     class Types
     {
-        private static readonly Type[] types = Assembly.GetExecutingAssembly().GetTypes();
+        private static readonly Type[] types;
+        private static readonly Dictionary<string, Type> typesDictionary;
+
+        static Types()
+        {
+            types = Assembly.GetExecutingAssembly().GetTypes();
+
+            typesDictionary = new();
+            foreach(Type type in types)
+            {
+                typesDictionary[type.Name] = type;
+            }
+        }
 
         public static Type[] All => types;
 
         public static Type GetType(string name)
         {
-            foreach(var type in types)
-            {
-                if(type.Name == name)
-                {
-                    return type;
-                }
-            }
-
-            return null;
+            typesDictionary.TryGetValue(name, out var type);
+            return type;
         }
     }
 }
